@@ -17,13 +17,13 @@ Simply download the code in the upper section and install the panel in the respe
 Open the panel and select the object you want to convert. Then press the button that correspond to the solution you want to use.
 
 ## 2.8+
-# Activating the panel:
+### Activating the panel:
 ![Step 1: Activating the panel](https://cdn.discordapp.com/attachments/742933051897806851/1063170941875662918/Step_1.gif)
 
-# Renaming Vertex Groups & Breast bones:
+### Renaming Vertex Groups & Breast bones:
 ![Step 2: Renaming VgGroups](https://cdn.discordapp.com/attachments/742933051897806851/1063170942290894868/Step_2.gif)
 
-# Scale & Rotate:
+### Scale & Rotate:
 ![Step 3: Resize and Rotate](https://cdn.discordapp.com/attachments/742933051897806851/1063170942706122752/Step_3.gif)
 
  ### Original Code by Gehenna, Edited by Dytser
