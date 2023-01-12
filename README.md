@@ -4,7 +4,7 @@ Adds a Blender Panel to rename Vertex Groups to their MHR counterpart. And to ro
 It also has buttons in the panel to convert any physics bones from MHW to MHR, with choices of Breastbones or generic physics bones.
 Breasts assumes the breastbones uses the first two available physics bones in MHW which is 150 for the Left Breast and 152 for the Right Breast
 The generic Physics bone renaming will simply name them Physics_xx
- ### Original Code by Gehenna, Edited by Dytser
+
 ## Installation
 Simply download the code in the upper section and install the panel in the respective blender versions by doing the following
 ### 2.8+
@@ -25,3 +25,5 @@ Open the panel and select the object you want to convert. Then press the button 
 
 # Activating the panel:
 ![Step 3: Resize and Rotate](https://cdn.discordapp.com/attachments/742933051897806851/1063170942706122752/Step_3.gif)
+
+ ### Original Code by Gehenna, Edited by Dytser
