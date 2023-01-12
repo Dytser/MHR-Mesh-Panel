@@ -23,7 +23,7 @@ Open the panel and select the object you want to convert. Then press the button 
 # Renaming Vertex Groups & Breast bones:
 ![Step 2: Renaming VgGroups](https://cdn.discordapp.com/attachments/742933051897806851/1063170942290894868/Step_2.gif)
 
-# Activating the panel:
+# Scale & Rotate:
 ![Step 3: Resize and Rotate](https://cdn.discordapp.com/attachments/742933051897806851/1063170942706122752/Step_3.gif)
 
  ### Original Code by Gehenna, Edited by Dytser
