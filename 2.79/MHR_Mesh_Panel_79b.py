@@ -1,7 +1,7 @@
 bl_info = {
     "name": "MHR Mesh Panel",
     "author": "Gehenna, Dytser",
-    "version": (2, 2),
+    "version": (2, 3),
     "blender": (2, 77, 0),
     "location": "View3D > Tool Shelf > My Tab",
     "description": "Adds a MHR Panel to rename Vertex Groups to their MHR counterpart. And to rotate+scale meshes to help porting of MHW meshes",
@@ -110,6 +110,7 @@ def main4(context):
     ['BoneFunction.152'],
     ['BoneFunction.153'],
     ['BoneFunction.154'],
+    ['BoneFunction.155'],
     ['BoneFunction.156'],
     ['BoneFunction.157'],
     ['BoneFunction.158'],
