@@ -1,7 +1,7 @@
 bl_info = {
     "name": "MHR Mesh Panel",
     "author": "Gehenna, Dytser",
-    "version": (2, 0),
+    "version": (2, 1),
     "blender": (2, 93, 3),
     "location": "View3D > Tool Shelf > My Tab",
     "description": "Adds a MHR Panel to rename Vertex Groups to their MHR counterpart. And to rotate+scale meshes to help porting of MHW meshes",
@@ -13,9 +13,9 @@ bl_info = {
 import bpy
 
 def main(context):
-    ob = bpy.context.active_object
-    ob.scale = ( 0.010, 0.010, 0.010 )
-    ob.rotation_euler = (1.5708,0,0)
+    for obj in bpy.context.selected_objects :
+        obj.scale = ( 0.010, 0.010, 0.010 )
+        obj.rotation_euler = (1.5708,0,0)
 
 def main2(context):
     name_list = [
@@ -84,80 +84,103 @@ def main2(context):
     ['BoneFunction.080','L_Arm_01_T'],
     ['BoneFunction.082','R_Arm_01_T']
     ]
-    v_groups = bpy.context.active_object.vertex_groups
-    for n in name_list:
-        if n[0] in v_groups:
-            v_groups[n[0]].name = n[1]
+    
+    for obj in bpy.context.selected_objects:
+        v_groups = obj.vertex_groups
+        for n in name_list:
+            if n[0] in v_groups:
+                v_groups[n[0]].name = n[1]
+        vg = obj.vertex_groups.get('BoneFunction.000')
+        if vg is not None:
+            obj.vertex_groups.remove(vg)
+            
 
 def main3(context):
     name_list = [
     ['BoneFunction.150','L_Boob_00'],
     ['BoneFunction.152','R_Boob_00']
     ]
-    v_groups = bpy.context.active_object.vertex_groups
-    for n in name_list:
-        if n[0] in v_groups:
-            v_groups[n[0]].name = n[1]
+    for obj in bpy.context.selected_objects:
+        v_groups = obj.vertex_groups
+        for n in name_list:
+            if n[0] in v_groups:
+                v_groups[n[0]].name = n[1]
 
 def main4(context):
     name_list = [
-    ['BoneFunction.150','Physics_01'],
-    ['BoneFunction.151','Physics_02'],
-    ['BoneFunction.152','Physics_03'],
-    ['BoneFunction.153','Physics_04'],
-    ['BoneFunction.154','Physics_05'],
-    ['BoneFunction.156','Physics_06'],
-    ['BoneFunction.157','Physics_07'],
-    ['BoneFunction.158','Physics_08'],
-    ['BoneFunction.159','Physics_09'],
-    ['BoneFunction.160','Physics_10'],
-    ['BoneFunction.161','Physics_11'],
-    ['BoneFunction.162','Physics_12'],
-    ['BoneFunction.163','Physics_13'],
-    ['BoneFunction.164','Physics_14'],
-    ['BoneFunction.165','Physics_15'],
-    ['BoneFunction.166','Physics_16'],
-    ['BoneFunction.167','Physics_17'],
-    ['BoneFunction.168','Physics_18'],
-    ['BoneFunction.169','Physics_19'],
-    ['BoneFunction.170','Physics_20'],
-    ['BoneFunction.171','Physics_21'],
-    ['BoneFunction.172','Physics_22'],
-    ['BoneFunction.173','Physics_23'],
-    ['BoneFunction.174','Physics_24'],
-    ['BoneFunction.175','Physics_25'],
-    ['BoneFunction.176','Physics_26'],
-    ['BoneFunction.177','Physics_27'],
-    ['BoneFunction.178','Physics_28'],
-    ['BoneFunction.179','Physics_29'],
-    ['BoneFunction.180','Physics_30'],
-    ['BoneFunction.181','Physics_31'],
-    ['BoneFunction.182','Physics_32'],
-    ['BoneFunction.183','Physics_33'],
-    ['BoneFunction.184','Physics_34'],
-    ['BoneFunction.185','Physics_35'],
-    ['BoneFunction.186','Physics_36'],
-    ['BoneFunction.187','Physics_37'],
-    ['BoneFunction.188','Physics_38'],
-    ['BoneFunction.189','Physics_39'],
-    ['BoneFunction.190','Physics_40'],
-    ['BoneFunction.191','Physics_41'],
-    ['BoneFunction.192','Physics_42'],
-    ['BoneFunction.193','Physics_43'],
-    ['BoneFunction.194','Physics_44'],
-    ['BoneFunction.195','Physics_45'],
-    ['BoneFunction.196','Physics_46'],
-    ['BoneFunction.197','Physics_47'],
-    ['BoneFunction.198','Physics_48'],
-    ['BoneFunction.199','Physics_49']
+    ['BoneFunction.150'],
+    ['BoneFunction.151'],
+    ['BoneFunction.152'],
+    ['BoneFunction.153'],
+    ['BoneFunction.154'],
+    ['BoneFunction.156'],
+    ['BoneFunction.157'],
+    ['BoneFunction.158'],
+    ['BoneFunction.159'],
+    ['BoneFunction.160'],
+    ['BoneFunction.161'],
+    ['BoneFunction.162'],
+    ['BoneFunction.163'],
+    ['BoneFunction.164'],
+    ['BoneFunction.165'],
+    ['BoneFunction.166'],
+    ['BoneFunction.167'],
+    ['BoneFunction.168'],
+    ['BoneFunction.169'],
+    ['BoneFunction.170'],
+    ['BoneFunction.171'],
+    ['BoneFunction.172'],
+    ['BoneFunction.173'],
+    ['BoneFunction.174'],
+    ['BoneFunction.175'],
+    ['BoneFunction.176'],
+    ['BoneFunction.177'],
+    ['BoneFunction.178'],
+    ['BoneFunction.179'],
+    ['BoneFunction.180'],
+    ['BoneFunction.181'],
+    ['BoneFunction.182'],
+    ['BoneFunction.183'],
+    ['BoneFunction.184'],
+    ['BoneFunction.185'],
+    ['BoneFunction.186'],
+    ['BoneFunction.187'],
+    ['BoneFunction.188'],
+    ['BoneFunction.189'],
+    ['BoneFunction.190'],
+    ['BoneFunction.191'],
+    ['BoneFunction.192'],
+    ['BoneFunction.193'],
+    ['BoneFunction.194'],
+    ['BoneFunction.195'],
+    ['BoneFunction.196'],
+    ['BoneFunction.197'],
+    ['BoneFunction.198'],
+    ['BoneFunction.199']
     ]
-    v_groups = bpy.context.active_object.vertex_groups
-    for n in name_list:
-        if n[0] in v_groups:
-            v_groups[n[0]].name = n[1]
+    
+    for obj in bpy.context.selected_objects:
+        v_groups = obj.vertex_groups
+        i = 0
+        for n in name_list:
+            if n[0] in v_groups:
+                v_groups[n[0]].name = 'Physics ' + f'{i}'
+                i=+1
 
+
+
+def main5(context):
+    name_list = [
+    ['UV0','DiffuseUV']
+    ]
+    for obj in bpy.context.selected_objects:
+        UV_groups = obj.data.uv_layers
+        for n in name_list:
+            if n[0] in UV_groups:
+                UV_groups[n[0]].name = n[1]
+                
 class ScaleRotate(bpy.types.Operator):
-    """Scales and Rotate MHW to match MHR pose"""
+    """Scales and Rotate MHW to match MHR pose (also renames UV's)"""
     bl_idname = "myops.scalerotate"
     bl_label = "Scale & Rotate"
 
@@ -192,6 +215,25 @@ class RenameGenericPhysics(bpy.types.Operator):
         main4(context)
         return {'FINISHED'}
 
+class RenameUV(bpy.types.Operator):
+    """Renames Vertex Groups to MHR counterpart"""
+    bl_idname = "myops.renameuv"
+    bl_label = "Rename UV's"
+
+    def execute(self, context):
+        main5(context)
+        return {'FINISHED'}
+
+class AllAbove(bpy.types.Operator):
+    """Scales, Rotates, Renames UVs and Vertex groups"""
+    bl_idname = "myops.allabove"
+    bl_label = "All of the Above"
+
+    def execute(self, context):
+        main(context)
+        main2(context)
+        main5(context)
+        return {'FINISHED'}
 
 class MHRPanel(bpy.types.Panel):
     """Creates a Panel in the Tool Shelf"""
@@ -207,11 +249,16 @@ class MHRPanel(bpy.types.Panel):
 
         col.operator("myops.scalerotate")
         col.operator("myops.renamevg")
+        col.operator("myops.renameuv")
+        col.separator()
+        col.operator("myops.allabove")
+        col.separator()
         col.separator()
         col.separator()
         col.operator("myops.renamebreasts")
         col.operator("myops.renamegenericphysics")
         col.separator()
+
 
 
 classes = (
@@ -220,6 +267,8 @@ classes = (
     MHRPanel,
     RenameBreasts,
     RenameGenericPhysics,
+    RenameUV,
+    AllAbove,
 )
 
 register, unregister = bpy.utils.register_classes_factory(classes)
