@@ -1,7 +1,7 @@
 bl_info = {
     "name": "MHR Mesh Panel",
     "author": "Gehenna, Dytser",
-    "version": (2, 1),
+    "version": (2, 2),
     "blender": (2, 77, 0),
     "location": "View3D > Tool Shelf > My Tab",
     "description": "Adds a MHR Panel to rename Vertex Groups to their MHR counterpart. And to rotate+scale meshes to help porting of MHW meshes",
@@ -162,7 +162,7 @@ def main4(context):
         for n in name_list:
             if n[0] in v_groups:
                 v_groups[n[0]].name = 'Physics ' + str(i)
-                i=+1
+                i+=1
 
 def main5(context):
     name_list = [
