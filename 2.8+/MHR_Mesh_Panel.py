@@ -1,16 +1,17 @@
 bl_info = {
     "name": "MHR Mesh Panel",
     "author": "Gehenna, Dytser",
-    "version": (2, 3),
+    "version": (2, 5),
     "blender": (2, 93, 3),
     "location": "View3D > Tool Shelf > My Tab",
     "description": "Adds a MHR Panel to rename Vertex Groups to their MHR counterpart. And to rotate+scale meshes to help porting of MHW meshes",
     "warning": "",
     "wiki_url": "",
-    "category": "Add Mesh",
+    "category": "MHR",
     }
 
 import bpy
+from bpy.types import Menu
 
 def main(context):
     for obj in bpy.context.selected_objects :
@@ -94,7 +95,6 @@ def main2(context):
         if vg is not None:
             obj.vertex_groups.remove(vg)
             
-
 def main3(context):
     name_list = [
     ['BoneFunction.150','L_Boob_00'],
@@ -168,8 +168,6 @@ def main4(context):
                 v_groups[n[0]].name = 'Physics ' + f'{i}'
                 i+=1
 
-
-
 def main5(context):
     name_list = [
     ['UV0','DiffuseUV']
@@ -225,10 +223,10 @@ class RenameUV(bpy.types.Operator):
         main5(context)
         return {'FINISHED'}
 
-class AllAbove(bpy.types.Operator):
+class AllTransforms(bpy.types.Operator):
     """Scales, Rotates, Renames UVs and Vertex groups"""
-    bl_idname = "myops.allabove"
-    bl_label = "All of the Above"
+    bl_idname = "myops.all_transforms"
+    bl_label = "All Transformations"
 
     def execute(self, context):
         main(context)
@@ -252,7 +250,7 @@ class MHRPanel(bpy.types.Panel):
         col.operator("myops.renamevg")
         col.operator("myops.renameuv")
         col.separator()
-        col.operator("myops.allabove")
+        col.operator("myops.all_transforms")
         col.separator()
         col.separator()
         col.separator()
@@ -261,7 +259,7 @@ class MHRPanel(bpy.types.Panel):
         col.separator()
 
 
-
+        
 classes = (
     ScaleRotate,
     RenameVG,
@@ -269,13 +267,15 @@ classes = (
     RenameBreasts,
     RenameGenericPhysics,
     RenameUV,
-    AllAbove,
-)
+    AllTransforms,
+    )
+addon_keymaps = []
 
 register, unregister = bpy.utils.register_classes_factory(classes)
 
 if __name__ == "__main__":
     register()
+
 
     # test call
     # bpy.ops.myops.scalerotate()

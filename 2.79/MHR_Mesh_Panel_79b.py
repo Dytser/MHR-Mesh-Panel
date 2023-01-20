@@ -1,13 +1,13 @@
 bl_info = {
     "name": "MHR Mesh Panel",
     "author": "Gehenna, Dytser",
-    "version": (2, 3),
+    "version": (2, 5),
     "blender": (2, 77, 0),
     "location": "View3D > Tool Shelf > My Tab",
     "description": "Adds a MHR Panel to rename Vertex Groups to their MHR counterpart. And to rotate+scale meshes to help porting of MHW meshes",
     "warning": "",
     "wiki_url": "",
-    "category": "Add Mesh",
+    "category": "MHR",
     }
 
 import bpy
@@ -221,10 +221,10 @@ class RenameUV(bpy.types.Operator):
         main5(context)
         return {'FINISHED'}
 
-class AllAbove(bpy.types.Operator):
+class AllTransforms(bpy.types.Operator):
     """Scales, Rotates, Renames UVs and Vertex groups"""
-    bl_idname = "myops.allabove"
-    bl_label = "All of the Above"
+    bl_idname = "myops.all_transforms"
+    bl_label = "All Transformation"
 
     def execute(self, context):
         main(context)
@@ -248,7 +248,7 @@ class MHRPanel(bpy.types.Panel):
         col.operator("myops.renamevg")
         col.operator("myops.renameuv")
         col.separator()
-        col.operator("myops.allabove")
+        col.operator("myops.all_transforms")
         col.separator()
         col.separator()
         col.separator()
@@ -265,7 +265,7 @@ def register():
     bpy.utils.register_class(RenameGenericPhysics)
     bpy.utils.register_class(MHRPanel)
     bpy.utils.register_class(RenameUV)
-    bpy.utils.register_class(AllAbove)
+    bpy.utils.register_class(AllTransforms)
     
 def unregister():
     bpy.utils.unregister_class(ScaleRotate)
@@ -274,7 +274,7 @@ def unregister():
     bpy.utils.unregister_class(RenameGenericPhysics)
     bpy.utils.unregister_class(MHRPanel)
     bpy.utils.unregister_class(RenameUV)
-    bpy.utils.unregister_class(AllAbove)
+    bpy.utils.unregister_class(AllTransforms)
 
 if __name__ == "__main__":
     register()
