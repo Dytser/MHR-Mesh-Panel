@@ -27,7 +27,18 @@ Open the panel and select the object you want to convert. Then press the button 
 ### Scale & Rotate:
 ![Step 3: Resize and Rotate](https://cdn.discordapp.com/attachments/742933051897806851/1063170942706122752/Step_3.gif)
 
-###Pie Menu
-![Pie Menu Example] (https://cdn.discordapp.com/attachments/742933051897806851/1066102055762137108/image.png)
+## Pie Menu:
+#### Shortcut key: "Shift + R"
+Additional plugin that lets you access the functions from this plugin and more stuff i found useful while working.
+### "Normalize all" 
+This lets you quickly normalize all without locking actives (my preferred way of using normalize as i prefer to lock weight groups manually)
+### "Tris to Quads" 
+Will convert tris to quads on all selected objects while respecting UV's (no more broken UVs you need to repair, like seriously how is that the default mode of blender?!
+### Smoothing
+Opens a menu with 4 easy and useful smoothing options. "0.5", "0.5 x 2", "1.0", "1.0 x 2"
+### MHW to MHR
+Opens a menu that has the key parts of the above tool, "All Transformations", "Rename Breast bones" and "rename Generic Physics"
+
+![Pie Menu Example](https://cdn.discordapp.com/attachments/742933051897806851/1066102055762137108/image.png)
 
  ### Original Code by Gehenna, Edited by Dytser
