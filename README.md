@@ -8,7 +8,8 @@ The generic Physics bone renaming will simply name them Physics_xx
 ## Installation
 Simply download the code in the upper section and install the panel in the respective blender versions by doing the following
 ### 2.8+
-"Edit>Preferences>Add-ons>Install" then navigate to the 
+"Edit>Preferences>Add-ons>Install" then navigate to the file you downloaded.
+There is also the optional Pie Menu that you can install for some additional functionality. (default button is Shift+R)
 
 ### 2.79
 "File>User Preferences>Add-ons>Install" then navigate to the file
@@ -25,5 +26,8 @@ Open the panel and select the object you want to convert. Then press the button 
 
 ### Scale & Rotate:
 ![Step 3: Resize and Rotate](https://cdn.discordapp.com/attachments/742933051897806851/1063170942706122752/Step_3.gif)
+
+###Pie Menu
+![Pie Menu Example] (https://cdn.discordapp.com/attachments/742933051897806851/1066102055762137108/image.png)
 
  ### Original Code by Gehenna, Edited by Dytser
